@@ -1,0 +1,21 @@
+#include<iostream> using namespace std;
+
+    class Hero
+    {
+    public:
+        int health;
+        int age;
+        char name[100];
+    }
+};
+
+int main()
+{
+    Hero Ramesh;
+    // dynamically Memory Allocation
+    Hero *ptr = new Hero;
+
+    cout << ptr->health << ptr->age; // derefrencing it as ptr should stores the address another way to writ the same is
+    cout << (*ptr).health << (*ptr).age;
+    return 0;
+}
