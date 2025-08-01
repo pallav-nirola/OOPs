@@ -1,23 +1,28 @@
 #include <iostream>
 using namespace std;
-class Hero
-{
 
-    int heath // By deafault Private
-        int age;
-
+class Hero {
+private:
+    int health;  
+    int age;
     char name[100];
-    int getHealth()
-    {
+
+public:
+    int getHealth() {
         return health;
     }
-    void setHealth(int health)
-    {
-        health = 70;
-    }
 
-} int main()
-{
+    void setHealth(int h) {
+        health = h; // Use the parameter to set the value so that it is easy to cutomize in future if you want to fix it for the whole code then public:
+    //Hero() {
+//  health = 70;  // fixed once during object creation
+//  }
+    }
+};
+
+int main() {
     Hero Ramesh;
-    cout << Ramesh.getHealth();
+    Ramesh.setHealth(70);  // Set health before getting it
+    cout << Ramesh.getHealth() << endl;
     return 0;
+}
