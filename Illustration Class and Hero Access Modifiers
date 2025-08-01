@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+class Hero{
+Public:
+int health 
+int age;// now you cabn access health and age as it a public member and no more a private memeber
+
+char anem[100];}
+int main(){
+Hero Ramesh;
+Ramesh.health = 80;
+Ramesh.age = 70;
+cout<<Ramesh.health
+cout<<Ramesh.age
+return 0;
