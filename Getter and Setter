@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+class Hero
+{
+
+    int heath // By deafault Private
+        int age;
+
+    char name[100];
+    int getHealth()
+    {
+        return health;
+    }
+    void setHealth(int health)
+    {
+        health = 70;
+    }
+
+} int main()
+{
+    Hero Ramesh;
+    cout << Ramesh.getHealth();
+    return 0;
