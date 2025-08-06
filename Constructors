@@ -13,7 +13,10 @@ public:
 
 int main()
 {
-    Hero Ramesh;
+    //Hero Ramesh;// Create Statically
+Hero* Ramesh = new Hero();               // Create Hero dynamically
+    cout << Ramesh->name << endl;          // Use -> to access members
+    delete Ramesh;                         // Clean up memory
     cout << Ramesh.str << endl;
 
     return 0;
