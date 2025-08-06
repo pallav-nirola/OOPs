@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+class Dog {
+public:
+    string name;
+
+    // Parameterized constructor
+    Dog(string n) {
+        name = n;
+        cout << "Dog named " << name << " is created!" << endl; //n is like someone handing you a book (parameter).
+//Your class member name is like a backpack (storage inside the object).
+//If you don’t put the book in the bag (name = n;), the book will be lost once the person leaves (once the constructor ends)
+    }
+};
+
+int main() {
+    Dog d1("Max");
+    Dog d2("Charlie");
+
+    cout << d1.name << endl;  // Max
+    cout << d2.name << endl;  // Charlie
+
+    return 0;
+}
