@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Dog {
+public:
+    string name;
+
+    Dog(string n) {
+        name = n;
+    }
+
+    Dog(const Dog &d) {
+        name = d.name;  
+        cout << "Copy constructor called!" << endl;
+    }
+
+    void bark() {
+        cout << name << " says woof!" << endl;
+    }
+};
+
+int main() {
+    Dog d1("Tommy"); 
+    Dog d2 = d1; 
+    cout<<"name of d2 dog is"<<d2.name<<endl
+
+    d1.bark();        
+    d2.bark();        
+
+    return 0;
+}
