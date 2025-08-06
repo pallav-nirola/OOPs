@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+class Hero
+{
+public:
+    string str;
+    Hero()
+    {
+        str = "Default Constructor";
+        cout << "Your hero is created with " << str << endl;
+    }
+};
+
+int main()
+{
+    Hero Ramesh;
+    cout << Ramesh.str << endl;
+
+    return 0;
+}
