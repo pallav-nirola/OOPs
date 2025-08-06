@@ -3,11 +3,11 @@ using namespace std;
 class Hero
 {
 public:
-    string str;
+    string name;
     Hero()
     {
-        str = "Default Constructor";
-        cout << "Your hero is created with " << str << endl;
+        name = "Buddy";
+        cout << "Your hero is created with " << name << endl;
     }
 };
 
@@ -17,7 +17,7 @@ int main()
 Hero* Ramesh = new Hero();               // Create Hero dynamically
     cout << Ramesh->name << endl;          // Use -> to access members
     delete Ramesh;                         // Clean up memory
-    cout << Ramesh.str << endl;
+    cout << Ramesh.name << endl;
 
     return 0;
 }
