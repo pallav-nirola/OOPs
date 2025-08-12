@@ -1,23 +1,66 @@
-#include <iostream>
+// #include<iostream>
+// using namespace std;
+// class car{
+// public :  // here you are creating properties of that car which are color, MaxSpeed and original
+// string color;
+// int MaxSpeed;
+// int original;
+// void braking(int VelocityDec){ // here you create a feature like braking and adding more feature using VelocityDec
+//     MaxSpeed = original - VelocityDec;
+//     cout << "Braking the car" <<MaxSpeed<<endl; 
+// }
+// void speeding(int VelocityInc){
+//     MaxSpeed = original + VelocityInc;
+
+//     cout<<MaxSpeed<<endl;
+// }
+// };
+// int main(){
+//     car f1;
+//     f1.color = "Red";
+//     f1.MaxSpeed = 200;
+//     f1.original = f1.MaxSpeed;
+//     f1.braking(20);
+//     f1.speeding(30);
+
+//   }
+                          /////////////without constructor /////////////
+// car f1;             // object made, but values are garbage (uninitialized)
+// f1.color = "Red";   // now you set them
+// f1.originalSpeed = 200;
+// f1.MaxSpeed = 200;
+
+// Problem:
+// If you forget to set one value, the object is incomplete 
+// More typing every time you make a car
+
+                           /////////////With Constructor /////////////
+//car f1("Red", 200); // constructor runs → sets all variables// like writng less of a code
+#include<iostream>
 using namespace std;
-class Hero
-{
-public:
-    string name;
-    Hero()
-    {
-        name = "Buddy";
-        cout << "Your hero is created with " << name << endl;
-    }
-};
-
-int main()
-{
-    //Hero Ramesh;// Create Statically
-Hero* Ramesh = new Hero();               // Create Hero dynamically
-    cout << Ramesh->name << endl;          // Use -> to access members
-    delete Ramesh;                         // Clean up memory
-    cout << Ramesh.name << endl;
-
-    return 0;
+class car{
+public :
+string color;
+int MaxSpeed;
+int original;
+car(string c, int s){
+    color = c;
+    original = s;
+    MaxSpeed = s;
 }
+void braking(int VelocityDec){
+    MaxSpeed = original - VelocityDec;
+    cout << "Braking the car" <<MaxSpeed<<endl; 
+}
+void speeding(int VelocityInc){
+    MaxSpeed = original + VelocityInc;
+
+    cout<<MaxSpeed<<endl;
+}
+};
+int main(){
+    car f1("Red", 200);
+    f1.braking(20);
+    f1.speeding(30);
+
+  }
