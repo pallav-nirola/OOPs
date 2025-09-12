@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle
+{
+private:
+    int length;
+    int breadth;
+
+public:
+    Rectangle()
+    {
+        length = 0;
+        breadth = 0;
+    }
+    Rectangle(int a, int b)
+    {
+        length = a;
+        breadth = b;
+    }
+    Rectangle(int w)
+    {
+        length = w;
+        breadth = w;
+    }
+    void get_area()
+    {
+
+        cout << "Area of Rectangle is: " << length * breadth << endl;
+    }
+};
+
+int main()
+{
+    Rectangle r1;
+    Rectangle r2(5, 10);
+    Rectangle r3(7);
+    r1.get_area();
+    cout<<endl;
+    r2.get_area();
+    cout<<endl;
+    r3.get_area();
+    return 0;
+}
