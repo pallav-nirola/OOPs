@@ -42,3 +42,62 @@ int main()
     r3.get_area();
     return 0;
 }
+#include <iostream>
+using namespace std;
+
+class Bank
+{
+private:
+    int balance;
+
+public:
+    string name;
+    int account_number;
+    Bank(string n, int ac, int b)
+    {
+        name = n;
+        account_number = ac;
+        balance = b;
+    }
+    void setBalance(int b)
+    {
+        balance = b;
+    }
+    void get_balance()
+    {
+        cout << "Balance is: " << balance << endl;
+    }
+};
+class Savings : public Bank
+{
+
+private:
+    int interest;
+
+public:
+    Savings(string n, int ac, int b, int in) : Bank(n, ac, b)
+    {
+        interest = in;
+    };
+    void addInterest()
+    {
+        int newBalance = get_balance() + (get_balance() * interest / 100);
+        setBalance(newBalance);
+    }
+};
+
+int main() _
+{
+    Savings s1("Pallav", 123456, 1000, 5.0);
+
+    cout << "Initial Account Details:\n";
+    s1.get_balance();
+    cout << endl
+         << "Adding interest...\n";
+    s1.addInterest();
+
+    cout << endl
+         << "Updated Account Details:\n";
+    s1.get_balance();
+    return 0;
+}
