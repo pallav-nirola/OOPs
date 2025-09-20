@@ -103,5 +103,98 @@ int main() {
     cout<<c1.get_distance_covered()<<endl;
     cout<<c1.get_mileage()<<endl;
 
+    return 0;}
+Q 4 
+#include <iostream>
+using namespace std;
+
+class Donor
+{
+private:
+    string donor_name;
+    double balance;
+
+public:
+    Donor(string name, double amount)
+    {
+        donor_name = name;
+        balance = amount;
+    }
+    string naam()
+    {
+        return donor_name;
+    }
+    void display()
+    {
+        cout << donor_name << endl;
+        cout << balance << endl;
+    }
+    double get_balance()
+    {
+        return balance;
+    }
+    double remaining_balance(int amt)
+    {
+        int x = get_balance() - amt;
+        return x;
+    }
+};
+class Recipient
+{
+private:
+    string recipient_name;
+    double
+        account_balance;
+    double amount_required;
+
+public:
+    Recipient(string name, double balance, double amount)
+    {
+        recipient_name = name;
+        account_balance = balance;
+        amount_required = amount;
+    }
+    double get_balance()
+    {
+        return account_balance;
+    }
+    int added_Amount(int Amt)
+    {
+        int y = get_balance() + Amt;
+        return y;
+    }
+    void display()
+    {
+        cout << recipient_name;
+        cout << endl;
+        cout << account_balance<<endl;
+        cout << amount_required<<endl;
+    }
+    string naam()
+    {
+        return recipient_name;
+    }
+};
+void transfer(Donor &donor, Recipient &recipient, double amount)
+{
+    if (donor.get_balance() > amount)
+    {
+        donor.remaining_balance(amount);
+        recipient.added_Amount(amount);
+        cout << "Amount transferred of " << amount << "from A/C holder " << donor.naam() << " to " << recipient.naam() << endl;
+    }
+    else
+    {
+        cout << "LAck of money in donor account" << endl;
+    }
+}
+int main()
+{
+    Donor d1("RaashFord", 1000);
+    Recipient r1("Ali", 400, 200);
+    d1.display();
+    r1.display();
+    transfer(d1, r1,200);
+
     return 0;
 }
