@@ -1,3 +1,4 @@
+Q 1
 #include <iostream>
 using namespace std;
 class triangle
@@ -40,5 +41,38 @@ int main()
     triangle larger = triangle ::   compareArea(t1,t2);
    larger.display();
 
+    return 0;}
+Q 2
+#include<iostream>
+using namespace std;
+struct ginti{
+int customers;
+int items;
+
+};
+int main() {
+    ginti count = {12,20};
+    cout<<count.items<<endl;
+    cout<<count.customers<<endl;
     return 0;
 }
+// using class if was allowed;
+#include <iostream>
+using namespace std;
+
+
+class ginti
+{
+    public:
+    static int customer;
+    static int items;
+};
+int ginti ::customer = 20;
+int ginti ::items = 12;
+int main()
+{
+    cout << ginti::items << endl;
+    cout << ginti::customer << endl;
+    return 0;
+}
+
