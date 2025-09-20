@@ -75,4 +75,33 @@ int main()
     cout << ginti::customer << endl;
     return 0;
 }
+Q 2 a
+#include<iostream>
+using namespace std;
+class Car{
+private:
+float avg_speed ;
+float fuel;
+public:
+Car(float avg_speed , float fuel){
+this->fuel  = fuel;
+this ->avg_speed = avg_speed ;
+}
+int get_distance_covered(){
+    int x = avg_speed*3600;
+    return x;
 
+}
+int get_mileage(){
+    float y = get_distance_covered();
+    return (y/fuel);// cannot directly access x as it is a local variable;
+}
+
+};
+int main() {
+    Car c1(80.5,22.2);
+    cout<<c1.get_distance_covered()<<endl;
+    cout<<c1.get_mileage()<<endl;
+
+    return 0;
+}
