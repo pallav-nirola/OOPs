@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+class triangle
+{
+private:
+    float base;
+    float height;
+
+public:
+    triangle(float b, float h)
+    {
+        base = b;
+        height = h;
+    }
+    int get_area() const
+    {
+        return (base * height) / 2;
+    }
+    static triangle compareArea(triangle &tri1, triangle &tri2)
+    {
+        if (tri1.get_area() >= tri2.get_area())
+        {
+            return tri1;
+        }
+        else
+        {
+            return tri2;
+        }
+    }
+    void display() const
+    {
+cout << "Base: " << base << ", Height: " << height
+             << ", Area: " << get_area() << endl;
+    }
+};
+int main()
+{
+    triangle t1(10, 60);
+    triangle t2(98, 99);
+    triangle larger = triangle ::   compareArea(t1,t2);
+   larger.display();
+
+    return 0;
+}
