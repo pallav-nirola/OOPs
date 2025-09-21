@@ -42,7 +42,7 @@ int main()
    larger.display();
 
     return 0;}
-Q 2
+Q1 b
 #include<iostream>
 using namespace std;
 struct ginti{
@@ -357,7 +357,7 @@ public:
 };
 
 class CartManager
-{
+{//SINGLE POINTER APPROACH
 private:
     Shopping_cart *ptr; // pointer called ptr that can point to a Shopping_cart object (or the first element of a collection of them).”
     int n;              // number of carts
@@ -405,6 +405,61 @@ int main()
 
     CartManager manager(n);
     manager.displayCarts();
+
+    return 0;
+}
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    Student(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    void display() const {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+int main() {
+    int n;
+    cout << "Enter number of students: ";
+    cin >> n;
+    // Each students[i] points to a separate Student object on the heap.
+
+//MULTIPLE POINTERS ARE CRCEATED
+    // students is an array of n pointers. Each students[i] is a separate pointer.
+
+    // Step 1: Array of pointers on the stack
+    Student* students[n]; //students is an array of pointers.
+// Each element students[i] is a separate pointer that can point to a Student object
+
+    // Step 2: Allocate each object dynamically
+    for (int i = 0; i < n; i++) {
+        string name;
+        int age;
+        cout << "Enter name and age for student " << i + 1 << ": ";
+        cin >> name >> age;
+
+        students[i] = new Student(name, age); 
+    }
+
+    // Step 3: Display details
+    cout << "\nStudent Details:\n";
+    for (int i = 0; i < n; i++) {
+        (*students[i]).display();  // Dereference first, then call display
+    }
+
+    // Step 4: Free each object
+    for (int i = 0; i < n; i++) {
+        delete students[i];
+    }
 
     return 0;
 }
