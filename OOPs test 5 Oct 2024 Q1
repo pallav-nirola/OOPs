@@ -329,3 +329,88 @@ int main()
 
     return 0;
 }
+Q 3
+#include <iostream>
+using namespace std;
+class Shopping_cart
+{
+private:
+    int cart_id;
+    string customer_name;
+    int item_count;
+
+public:
+    Shopping_cart(int id, string name, int count)
+    {
+
+        cart_id = id;
+        customer_name = name;
+        item_count = count;
+    }
+
+    void display_cart()
+    {
+        cout << "Cart ID" << cart_id << endl;
+        cout << "customer_name" << customer_name << endl;
+        cout << "item_count" << item_count << endl;
+    }
+};
+
+class CartManager
+{
+private:
+    Shopping_cart *ptr; // pointer called ptr that can point to a Shopping_cart object (or the first element of a collection of them).”
+    int n;              // number of carts
+
+public:
+    // Constructor: dynamically create carts
+    CartManager(int size)
+    {
+        n = size;
+        ptr = new Shopping_cart[n]; // Allocates memory on the heap for n objects of type Shopping_cart. and Returns the address of the first object in this block of memory.
+
+        for (int i = 0; i < n; i++)
+        {
+            int id, count;
+            string name;
+
+            cout << "\nEnter details for Cart " << i + 1 << ":\n";
+            cout << "Cart ID: ";
+            cin >> id;
+            cout << "Customer Name: ";
+            cin >> name;
+            cout << "Item Count: ";
+            cin >> count;
+
+            ptr[i] = Shopping_cart(id, name, count);
+        }
+    }
+
+    // Display all carts
+    void displayCarts()
+    {
+        cout << "\n--- Shopping Cart Details ---\n";
+        for (int i = 0; i < n; i++)
+        {
+            ptr[i].display_cart();
+            cout << "--------------------------\n";
+        }
+    }
+
+    ~CartManager()
+    {
+        delete[] ptr;
+        cout << "All carts deleted successfully!" << endl;
+    }
+};
+int main()
+{
+    int n;
+    cout << "Enter number of shopping carts: ";
+    cin >> n;
+
+    CartManager manager(n);
+    manager.displayCarts();
+
+    return 0;
+}
