@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class Alpha{
+
+    int nummber;
+    public:
+    Alpha(int n){
+
+        nummber = n;
+
+    }
+    friend void show_number(Alpha &ali);
+    
+};
+void show_number(Alpha &ali){
+    cout<<"the number is"<<ali.nummber<<endl;
+}
+int main() {
+    Alpha al(42);
+    show_number(al);
+    return 0;
+}
