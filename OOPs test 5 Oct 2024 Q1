@@ -409,6 +409,76 @@ int main()
 
     return 0;
 }
+Approach ALternative 
+#include <iostream>
+using namespace std;
+
+class ShoppingCart
+{
+private:
+    int cart_id;
+    string customer_name;
+    int item_count;
+
+public:
+    ShoppingCart(int id, string name, int item)
+    {
+        cart_id = id;
+        customer_name = name;
+        item_count = item;
+    }
+
+    void display_cart() const
+    {
+        cout << "Cart ID: " << cart_id << endl;
+        cout << "Customer Name: " << customer_name << endl;
+        cout << "Number of Items: " << item_count << endl;
+        cout << "----------------------" << endl;
+    }
+};
+
+int main()
+{
+    int n;
+    cout << "Enter the number of shopping carts: ";
+    cin >> n;
+
+    ShoppingCart *ptr = new ShoppingCart[n];
+
+    for (int i = 0; i < n; ++i)
+    {
+        int id, count;
+        string name;
+        cout << "\nEnter details for Cart " << (i + 1) << ":\n";
+        cout << "Cart ID: ";
+        cin >> id;
+        cin.ignore();
+        cout << "Customer Name: ";
+        getline(cin, name);
+        cout << "Number of Items: ";
+        cin >> count;
+
+        new (ptr + i) ShoppingCart(id, name, count);
+    }
+
+    cout << "\nShopping Cart Details:\n";
+    for (int i = 0; i < n; ++i)
+    {
+        (*(ptr + i)).display_cart();
+        cout << endl;
+    }
+
+    for (int i = 0; i < n; ++i)
+    {
+        (*(ptr + i)).~ShoppingCart();
+    }
+
+    // Free memory
+    delete[] ptr;
+
+    return 0;
+}
+
 #include <iostream>
 using namespace std;
 
