@@ -20,3 +20,33 @@ int main() {
     show_number(al);
     return 0;
 }
+#include <iostream>
+using namespace std;
+
+class Alpha {
+private:
+    int number;  // private member
+
+public:
+    Alpha(int n) {
+        number = n;
+    }
+
+    // Declare friend function
+    friend class Beta; // Beta class can access private members
+};
+
+// Friend class
+class Beta {
+public:
+    void showNumber(Alpha &a) {
+        cout << "The number is: " << a.number << endl;
+    }
+};
+
+int main() {
+    Alpha a1(42);
+    Beta b1;
+    b1.showNumber(a1); // Access private member via friend class
+    return 0;
+}
