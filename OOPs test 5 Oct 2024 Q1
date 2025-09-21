@@ -369,30 +369,24 @@ public:
         n = size;
         ptr = new Shopping_cart[n]; // Allocates memory on the heap for n objects of type Shopping_cart. and Returns the address of the first object in this block of memory.
 
-        for (int i = 0; i < n; i++)
-        {
-            int id, count;
-            string name;
-
+        for (int i = 0; i < n; i++) {
             cout << "\nEnter details for Cart " << i + 1 << ":\n";
             cout << "Cart ID: ";
-            cin >> id;
+            cin >> (*(ptr + i)).cart_id;
             cout << "Customer Name: ";
-            cin >> name;
+            cin >> (*(ptr + i)).customer_name;
             cout << "Item Count: ";
-            cin >> count;
-
-            ptr[i] = Shopping_cart(id, name, count);
+            cin >> (*(ptr + i)).item_count;
         }
     }
+    
 
     // Display all carts
     void displayCarts()
     {
         cout << "\n--- Shopping Cart Details ---\n";
-        for (int i = 0; i < n; i++)
-        {
-            ptr[i].display_cart();
+        for (int i = 0; i < n; i++) {
+            (*(ptr + i)).display(); // using pointer arithmetic
             cout << "--------------------------\n";
         }
     }
