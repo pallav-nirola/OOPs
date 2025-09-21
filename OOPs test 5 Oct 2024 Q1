@@ -262,3 +262,70 @@ int main()
 
     return 0;
 }
+Q 6
+#include <iostream>
+using namespace std;
+class Compnay
+{
+protected:
+    string company_name;
+    string location;
+
+public:
+    Compnay(string name, string loc)
+    {
+        company_name = name;
+        location = loc;
+    }
+    void show_Comapny_details()
+    {
+        cout << "company name " << company_name << endl;
+        cout << "location" << location << endl;
+    }
+};
+class Team : public Compnay
+{
+protected:
+    string team_name;
+    string project;
+
+public:
+    Team(string name, string loc, string t_name, string pro) : Compnay(name, loc)
+    {
+        team_name = t_name;
+        project = pro;
+    }
+    void show_Team_details()
+    {
+        cout << " team_nam " << team_name << endl;
+        cout << "project" << project << endl;
+    }
+};
+class Developer : public Team
+{
+protected:
+    string develop_name;
+    string programming_language;
+    public:
+    Developer(string name, string loc, string t_name, string pro, string develop, string langu) : Team(name, loc, t_name, pro)
+    {
+        develop_name = develop;
+        programming_language = langu;
+    }
+    void show_Developer_details()
+    {
+        cout << " developer_name " << develop_name << endl;
+        cout << "programming_language" << programming_language << endl;
+        show_Team_details();
+       show_Comapny_details();
+    }
+};
+
+int main()
+{
+    Developer d1("Google", "California", "AI Research", "Chatbot",
+                 "Rahul", "C++");
+    d1.show_Developer_details();
+
+    return 0;
+}
