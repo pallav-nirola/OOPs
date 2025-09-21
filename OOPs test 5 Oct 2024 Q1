@@ -43,17 +43,18 @@ int main()
 
     return 0;}
 Q1 b
-#include<iostream>
+#include <iostream>
 using namespace std;
-struct ginti{
-int customers;
-int items;
-
+struct giniti
+{
+    int items;
+    int customers;
 };
-int main() {
-    ginti count = {12,20};
-    cout<<count.items<<endl;
-    cout<<count.customers<<endl;
+   giniti count = {20,12};
+int main()
+{
+ cout<<count.items<<endl;
+ cout<<count.customers<<endl;
     return 0;
 }
 // using class if was allowed;
