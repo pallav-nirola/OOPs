@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Student {
+public:
+    string name;
+    double* cgpaPtr; // Pointer to store CGPA
+
+
+    Student(string name, double cgpa) {
+        this->name = name;
+        // Allocate memory for cgpa dynamically (on the heap)
+        cgpaPtr = new double;
+        *cgpaPtr = cgpa;
+    }
+
+    // 2. **Deep Copy Constructor (Corrected)**
+Student(const Student &obj) {
+        this->name = obj.name;
+        
+        // **Deep Copy**: Allocate NEW memory for the copied object's pointer
+        this->cgpaPtr = new double; 
+        // Copy the actual VALUE from the original object
+        *(this->cgpaPtr) = *(obj.cgpaPtr); 
+    }
+    
+   
+    ~Student() {
+        delete cgpaPtr; 
+        cgpaPtr = nullptr; /
+}
+    void getInfo() {
+        cout << "Name : " << name << endl;
+        cout << "CGPA : " << *cgpaPtr << endl;
+    }
+};
+
+
+int main() {
+    
+    Student s1("Alice", 3.85);
+    cout << "--- s1 Info ---" << endl;
+    s1.getInfo(); 
+
+    // 2. Using the Copy Constructor
+    Student s2 = s1; // Calls the Deep Copy Constructor
+    cout << "--- s2 Info ---" << endl;
+    s2.getInfo(); 
+    
+    // 3. Modifying s2's CGPA (Deep Copy Test)
+    // Modify the value s2's pointer points to
+    *(s2.cgpaPtr) = 3.99; 
+
+    // The deep copy ensures s1's value is unchanged
+    cout << "\n--- After s2 modification ---" << endl;
+    cout << "s1's CGPA: " << *(s1.cgpaPtr) << endl; 
+    cout << "s2's CGPA: " << *(s2.cgpaPtr) << endl; 
+
+    // The destructors (~Student) will be called automatically 
+    // when s1 and s2 go out of scope, safely freeing memory.
+    
+    return 0;
+}
+*/
