@@ -35,7 +35,7 @@
 // More typing every time you make a car
 
                            /////////////With Constructor /////////////
-//car f1("Red", 200); // constructor runs → sets all variables// like writng less of a code
+//car f1("Red", 200); // constructor runs → sets all variables// like writng less of a code //// Object initialized dynamically (runtime values)
 #include<iostream>
 using namespace std;
 class car{
