@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+
+class Array {
+    int *data;   // pointer to store array elements
+    int size;    // how many elements
+
+public:
+    // 👉 Dynamic Constructor
+    Array(int s) {
+        size = s;
+        data = new int[size]; // dynamically allocate array
+        cout << "Dynamic constructor: allocated memory for " << size << " integers.\n";
+
+        // initialize the array
+        for (int i = 0; i < size; i++) {
+            data[i] = i + 1;
+        }
+    }
+
+    void display() {
+        cout << "Array elements: ";
+        for (int i = 0; i < size; i++) {
+            cout << data[i] << " ";
+        }
+        cout << endl;
+    }
+
+    // Destructor
+    ~Array() {
+        delete[] data; // release the memory
+        cout << "Destructor: memory released.\n";
+    }
+};
+int main() {
+    int n;
+    cout << "Enter size of array: ";
+    cin >> n;
+    // 👇 Object creation calls the dynamic constructor
+    Array arr(n);
+    arr.display(); // display the array elements
+    return 0;
+}
