@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class Distance {
+    int meters;
+    int centimeters;
+public:
+    Distance(int m = 0, int cm = 0) {
+        meters = m + cm / 100;        
+        centimeters = cm % 100;
+    }
+    // Overload '+' operator
+    Distance operator + (const Distance &obj) {
+        int totalCm = centimeters + obj.centimeters;
+        int totalM = meters + obj.meters + totalCm / 100;
+        totalCm = totalCm % 100;
+        return Distance(totalM, totalCm);
+    }
+    void display() const {
+        cout << meters << "m " << centimeters << "cm" << endl;
+    }
+};
+int main() {
+    Distance d1(5, 75);  
+    Distance d2(3, 60);  
+    Distance d3 = d1 + d2;  
+    cout << "Total distance = ";
+    d3.display();  
+    return 0;
+}
