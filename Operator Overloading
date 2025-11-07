@@ -1,30 +1,45 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class Distance {
+class Distance
+{
     int meters;
     int centimeters;
+
 public:
-    Distance(int m = 0, int cm = 0) {
-        meters = m + cm / 100;        
+    Distance(int m = 0, int cm = 0)
+    {
+        meters = m + cm / 100;
         centimeters = cm % 100;
     }
-    // Overload '+' operator // (A) Member Function
-    Distance operator + (const Distance &obj) {
+    // (A) Member Function // Overload '+' operator
+    Distance operator+(const Distance &obj)
+    {
         int totalCm = centimeters + obj.centimeters;
         int totalM = meters + obj.meters + totalCm / 100;
         totalCm = totalCm % 100;
         return Distance(totalM, totalCm);
     }
-    void display() const {
+    bool operator==(const Distance &obj) const
+    {
+        return (meters == obj.meters && centimeters == obj.centimeters);
+    }
+    void display()
+    {
         cout << meters << "m " << centimeters << "cm" << endl;
     }
 };
-int main() {
-    Distance d1(5, 75);  
-    Distance d2(3, 60);  
-    Distance d3 = d1 + d2;  
+int main()
+{
+    Distance d1(5, 75);
+    Distance d2(3, 60);
+    Distance d3 = d1 + d2;
+
     cout << "Total distance = ";
-    d3.display();  
+    d3.display();
+    if (d1 == d2)
+        cout << "Equal";
+    else
+        cout << "Not equal";
     return 0;
 }
