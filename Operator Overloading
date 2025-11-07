@@ -9,7 +9,7 @@ public:
         meters = m + cm / 100;        
         centimeters = cm % 100;
     }
-    // Overload '+' operator
+    // Overload '+' operator // (A) Member Function
     Distance operator + (const Distance &obj) {
         int totalCm = centimeters + obj.centimeters;
         int totalM = meters + obj.meters + totalCm / 100;
