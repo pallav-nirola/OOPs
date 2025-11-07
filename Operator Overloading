@@ -1,3 +1,4 @@
+Operator overloading means giving a new meaning to an existing operator (+, -, ==, etc.) when it’s used with user-defined types (like classes or structs).
 #include <iostream>
 #include <string>
 using namespace std;
