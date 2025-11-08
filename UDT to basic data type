@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+class Distance {
+    int meters;
+    int centimeters;
+public:
+    Distance(int m = 0, int cm = 0) {
+        meters = m + cm / 100;
+        centimeters = cm % 100;
+    }
+    // ✅ Explicit conversion function (UDT → float)
+    explicit operator float() const {
+        float totalMeters = meters + centimeters / 100.0f;
+        return totalMeters;
+    }
+};
+int main() {
+    Distance d1(5, 75);
+    // ❌ Implicit conversion not allowed anymore
+    // float total = d1;  // ❌ error: cannot convert automatically
+    // ✅ Explicit conversion required
+    float total = static_cast<float>(d1);
+    cout << "Total distance in meters = " << total << " m" << endl;
+
+    return 0;
+}
