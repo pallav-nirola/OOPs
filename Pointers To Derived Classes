@@ -20,9 +20,9 @@ int main(){
      BaseClass obj_base;
     DerivedClass obj_derived;
 
-    BaseClass *base_class_pointer;
+    BaseClass *base_class_pointer;//pointer to the base class
     base_class_pointer = &obj_derived; // Pointing base class pointer to derived class
-   (* base_class_pointer).var_base = 34;
+   (* base_class_pointer).var_base = 34;// though it was made pointed derieved class but it will still display function of base class;
     // base_class_pointer->var_derived= 134; // Will throw an error
     (*base_class_pointer).display();
     (*base_class_pointer).var_base = 3400; 
