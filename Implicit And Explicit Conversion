@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+int main() {
+    float f = 1.212;
+    int x ;
+    x = static_cast<int>(f);
+    cout << x<<endl<<f<<endl;
+
+    return 0;
+}
+// using classes
+#include <iostream>
+using namespace std;
+
+class Distance {
+    int meters;
+    int centimeters;
+
+public:
+    // Conversion constructor: float -> Distance
+    explicit Distance(float totalMeters) {//Do not allow this constructor to be used for implicit conversions —
+//only use it when the programmer explicitly asks for it that is why we use explicit keyword
+        meters = int(totalMeters);                    // whole meters
+        centimeters = int((totalMeters - meters) * 100); // remaining cm
+    }
+
+    void display() const {
+        cout << meters << "m " << centimeters << "cm" << endl;
+    }
+};
+
+int main() {
+    float f = 5.75;
+
+    
+    Distance d1 (f);    // it look like it is converting into Distance class automatically but it is not an implicit conversion
+    Distance d2 = static_cast<Distance>(7.85);
+
+    cout << "d1 = "; d1.display();
+    cout << "d2 = "; d2.display();
+
+    return 0;
+}
+//What happens without explicit
+
+// Let’s take your constructor without explicit:
+
+// class Distance {
+//     int meters;
+//     int centimeters;
+
+// public:
+//     Distance(float totalMeters) {   // 👈 no explicit keyword
+//         meters = int(totalMeters);
+//         centimeters = int((totalMeters - meters) * 100);
+//     }
+// };
+
+
+// Now, in main() you can do both:
+
+// int main() {
+//     Distance d1 = 7.85;  // ✅ works (implicit conversion)
+//     Distance d2(4.25);   // ✅ works (direct initialization)
+// }
+// printDistance(Distance(3.75));               // ✅ Direct initialization
+// printDistance(static_cast<Distance>(3.75));  // ✅ Explicit cast
