@@ -4,6 +4,7 @@
 using namespace std;
 int main() {
     string str  = " Hello Good world";
+// There are 2 ways to open a file handling the firts using constructor the other one using open function//
     ofstream outfile("Sample.txt");
     outfile<<str;
     outfile.close();//ensure closing the file after writing
@@ -13,5 +14,27 @@ int main() {
     cout<<str_2;
     infile.close();
 
+    return 0;
+}
+//using open and close function
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+int main() {
+    string str  = " Hello Good world";
+    ofstream outfile;
+    outfile.open(("Sample.txt"));
+    outfile<<str;
+    outfile.close();//ensure closing the file after writing
+    string str_2;
+    ifstream infile;// if it had mutiple line to read we won't use many str varaible instead use while loop till reach end of line
+    infile.open(("Sample_b.txt"));
+    while (infile.eof()==0)
+    {
+        getline(infile,str_2);
+        cout<<str_2<<" ";
+    }
+    infile.close();
     return 0;
 }
