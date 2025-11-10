@@ -1,0 +1,17 @@
+#include<iostream>
+#include<string>
+#include<fstream>
+using namespace std;
+int main() {
+    string str  = " Hello Good world";
+    ofstream outfile("Sample.txt");
+    outfile<<str;
+    outfile.close();//ensure closing the file after writing
+    string str_2;
+    ifstream infile("Sample.txt");
+    getline(infile , str_2);
+    cout<<str_2;
+    infile.close();
+
+    return 0;
+}
