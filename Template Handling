@@ -1,0 +1,173 @@
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+using namespace std;
+// Write a template function add<T>(T a, T b) that returns the sum of two numbers//
+template <typename T>
+T add(T x, T y)
+{
+    return x + y;
+}
+// Write a template function get_min<T>(T a, T b) that prints and returns the smaller number
+template <typename T>
+
+T get_min(T a, T b)
+{
+    if (a < b)
+    {
+        cout << "Minimum is: " << a << endl;
+        return a;
+    }
+    else
+    {
+        cout << "Minimum is: " << b << endl;
+        return b;
+    }
+}
+// Write a template function get_min<T>(T a, T b) that prints and returns the smaller number
+template <typename T>
+T swaper(T &a, T &b)
+{
+    swap(a, b);
+    return a, b;
+}
+
+template <class T>
+class Box
+{
+public:
+    T integer;
+
+    Box(T x)
+    {
+        integer = x;
+    }
+    void show()
+    {
+        cout << "The Value is: " << integer << endl;
+    }
+};
+// Write a template function Fr a calculator a
+
+template <class T>
+class calculator
+{
+public:
+    T init, unit;
+    calculator(T x, T y)
+    {
+        init = x;
+        unit = y;
+    }
+    T multiply()
+    {
+        return init * unit;
+    }
+    T divide()
+    {
+        return init / unit;
+    }
+};
+// Write a template function For a avergae  a
+template <typename T>
+class ArrayOps
+{
+    T *array;
+    int size;
+
+public:
+    ArrayOps(T arr[], int s)
+    {
+        size = s;
+        array = new T[size];
+        for (int i = 0; i < size; i++) // one way to do it by just copying the elements
+        {
+            array[i] = arr[i];
+        }
+    }
+    ArrayOps(T *arr /*will point to external array*/, int s) // another way without copying
+    {
+        size = s;
+        array = arr; /// no new allocation, just point
+    }
+    T get_average()
+    {
+        T average = 0;
+        for (int i = 0; i < size; i++)
+        {
+            average += array[i];
+        }
+        return average / size;
+    }
+};
+// Write a template function For a dot product  a
+template <typename T>
+class Dot_Product
+{
+    T *array_1;
+    T *array_2;
+    int size;
+
+public:
+    Dot_Product(int size)
+    {
+        (*this).size = size;
+        array_1 = new T[size];
+        array_2 = new T[size];
+    }
+    void inputArrays()
+    {
+        cout << "Enter elements for first array:\n";
+        for (int i = 0; i < size; i++)
+            cin >> array_1[i];
+
+        cout << "Enter elements for second array:";
+        for (int i = 0; i < size; i++)
+            cin >> array_2[i];
+    }
+    T get_Product()
+    {
+        T sum = 0;
+        for (int i = 0; i < size; i++)
+        {
+            sum = sum + (array_1[i] * array_2[i]);
+        }
+        return sum;
+    }
+};
+// Write a template function For a maximum  a
+template <typename T>
+class Get_Max
+{
+    T *array;
+    int size;
+
+public:
+    Get_Max(int s)
+    {
+        size = s;
+        array = new T[size];
+    }
+    T Max()
+    {
+        T max = array[0];
+        for (int i = 1; i < size; i++)
+        {
+            if (array[i] > max)
+            {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+};
+int main()
+{
+    cout << add<int>(3, 4) << endl;
+    cout << add<float>(3.5, 4.5) << endl;
+    cout << get_min<int>(10, 20) << endl;
+    cout << get_min<float>(10.5, 5.5) << endl;
+    calculator<int> obj(10, 2);
+    calculator<float> obj1(10.5, 2.5);
+    return 0;
+}
