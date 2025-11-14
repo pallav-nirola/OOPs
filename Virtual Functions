@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+//Overriding = same function name + same parameters + same return type
 class BaseClass{
     public:
         int var_base=1;
