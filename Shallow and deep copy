@@ -21,9 +21,9 @@ Student(const Student &obj) {
         this->name = obj.name;
         
         // **Deep Copy**: Allocate NEW memory for the copied object's pointer
-        this->cgpaPtr = new double; 
+        cgpaPtr = new double; 
         // Copy the actual VALUE from the original object
-        *(this->cgpaPtr) = *(obj.cgpaPtr); 
+        *(cgpaPtr) = *(obj.cgpaPtr); 
     }
     
    
