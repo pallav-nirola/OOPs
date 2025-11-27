@@ -22,10 +22,14 @@ public:
     return Distance(totalM, totalCm);
 }
 
-    bool operator==(const Distance &obj) const
-    {
-        return (meters == obj.meters && centimeters == obj.centimeters);
-    }
+   bool operator==(const Distance &obj) const
+{
+    if (this->meters == obj.meters && this->centimeters == obj.centimeters)
+        return true;
+    else
+        return false;
+}
+
     void display()
     {
         cout << meters << "m " << centimeters << "cm" << endl;
