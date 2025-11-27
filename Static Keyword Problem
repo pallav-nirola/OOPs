@@ -49,7 +49,7 @@ int main()
 
     if (true)
     {
-       static ABC obj;
+       static ABC obj; // static object stays till the very end of the command and only detsorys when the main is fullfilled, not unlike the non-static one which end with the if block
     }
     cout << "End of main function" << endl;
 
