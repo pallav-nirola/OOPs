@@ -14,13 +14,14 @@ public:
         centimeters = cm % 100;
     }
     // (A) Member Function // Overload '+' operator
-    Distance operator+(const Distance &obj)
-    {
-        int totalCm = centimeters + obj.centimeters;
-        int totalM = meters + obj.meters + totalCm / 100;
-        totalCm = totalCm % 100;
-        return Distance(totalM, totalCm);
-    }
+ Distance operator+(const Distance &obj)
+{
+    int totalCm = this->centimeters + obj.centimeters;
+    int totalM = this->meters + obj.meters + totalCm / 100;
+    totalCm = totalCm % 100;
+    return Distance(totalM, totalCm);
+}
+
     bool operator==(const Distance &obj) const
     {
         return (meters == obj.meters && centimeters == obj.centimeters);
