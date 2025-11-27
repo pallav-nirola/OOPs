@@ -15,14 +15,15 @@ public:
         cgpaPtr = new double;
         *cgpaPtr = cgpa;
     }
-
-    // 2. **Deep Copy Constructor (Corrected)**
+// shallow copy
+Student(const Student &obj){
+this->name = name ;
+this->cgpaPtr = obj.cgpaPtr;
+ }
+    //Deep Copy Constructor 
 Student(const Student &obj) {
         this->name = obj.name;
-        
-        // **Deep Copy**: Allocate NEW memory for the copied object's pointer
-        cgpaPtr = new double; 
-        // Copy the actual VALUE from the original object
+        this->cgpaPtr = new double; 
         *(cgpaPtr) = *(obj.cgpaPtr); 
     }
     
