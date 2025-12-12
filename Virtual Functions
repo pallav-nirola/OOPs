@@ -1,14 +1,20 @@
 #include<iostream>
 using namespace std;
-//Overriding = same function name + same parameters + same return type
-class BaseClass{
-    public:
+
+
+Overriding simply means:
+A derived class provides its own version of a base class function with:
+Same function name
+Same parameters
+Same return type
+Optional but recommended: the base function is marked virtual so that a base-class pointer can call the derived version.class BaseClass{
+    
+public:
         int var_base=1;
         virtual void display(){
             cout<<"1 Dispalying Base class variable var_base "<<var_base<<endl;
         }
 };
-
 class DerivedClass : public BaseClass{
     public:
             int var_derived=2;
